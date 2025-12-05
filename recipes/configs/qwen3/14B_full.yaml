@@ -28,7 +28,8 @@ tokenizer:
 # Dataset
 dataset:
   _component_: torchtune.datasets.alpaca_cleaned_dataset
-  packed: False  # True increases speed
+  packed: True  # True increases speed
+  split_across_pack: True
 seed: null
 shuffle: True
 
@@ -55,7 +56,7 @@ checkpointer:
 resume_from_checkpoint: False
 
 # Fine-tuning arguments
-batch_size: 2
+batch_size: 1
 epochs: 1
 optimizer:
   _component_: torch.optim.AdamW
